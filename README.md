@@ -49,8 +49,6 @@ select colname … from A表 where a.id not in (select b.id from B表)
 高效的sql语句
 
 select colname … from A表 Left join B表 on where a.id = b.id where b.id is null
-取出的结果集如下图表示，A表不在B表中的数据
-
 
 
 十、使用合理的分页方式以提高分页的效率
@@ -65,13 +63,12 @@ select id,name from product where id> 866612 limit 20
 
 在一些用户选择页面中，可能一些用户选择的时间范围过大，造成查询缓慢。主要的原因是扫描行数过多。这个时候可以通过程序，分段进行查询，循环遍历，将结果合并处理进行展示。
 
-如下图这个sql语句，扫描的行数成百万级以上的时候就可以使用分段查询
-
-
+这个sql语句，扫描的行数成百万级以上的时候就可以使用分段查询
 
 十二、避免在 where 子句中对字段进行 null 值判断
 
 对于null的判断会导致引擎放弃使用索引而进行全表扫描。
+
 
 十三、不建议使用%前缀模糊查询
 
@@ -79,7 +76,7 @@ select id,name from product where id> 866612 limit 20
 
 那如何查询%name%？
 
-如下图所示，虽然给secret字段添加了索引，但在explain结果果并没有使用
+虽然给secret字段添加了索引，但在explain结果果并没有使用
 
 
 
