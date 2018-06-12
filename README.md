@@ -7,7 +7,7 @@
 二、SQL语句中IN包含的值不应过多
 
 MySQL对于IN做了相应的优化，即将IN中的常量全部存储在一个数组里面，而且这个数组是排好序的。但是如果数值较多，产生的消耗也是比较大的。再例如：select id from t where num in(1,2,3) 对于连续的数值，能用 between 就不要用 in 了；再或者使用连接来替换。
-
+![image](https://github.com/872822645/danxuankuangDemo/blob/master/1.jpg)
 三、SELECT语句务必指明字段名称
 
 SELECT *增加很多不必要的消耗（cpu、io、内存、网络带宽）；增加了使用覆盖索引的可能性；当表结构发生改变时，前断也需要更新。所以要求直接在select后面接上字段名。
