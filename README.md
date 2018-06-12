@@ -2,7 +2,7 @@
 使用 EXPLAIN 关键字可以让你知道MySQL是如何处理你的SQL语句的。这可以帮你分析你的查询语句或是表结构的性能瓶颈。 
 　　EXPLAIN 的查询结果还会告诉你你的索引主键被如何利用的，你的数据表是如何被搜索和排序的……等等，等等。 
 　　挑一个你的SELECT语句(推荐挑选那个最复杂的，有多表联接的)，把关键字EXPLAIN加到前面。你可以使用phpmyadmin来做这个事。然后，你会看到一张表格。下面的这个示例中，我们忘记加上了group_id索引，并且有表联接： 
-　　 
+　　 ![Alt text](https://github.com/chenyufeng1991/NewsClient/raw/master/Screenshots/20160611163818049.jpg)
 
 二、SQL语句中IN包含的值不应过多
 
