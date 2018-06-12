@@ -2,12 +2,12 @@
 使用 EXPLAIN 关键字可以让你知道MySQL是如何处理你的SQL语句的。这可以帮你分析你的查询语句或是表结构的性能瓶颈。 
 　　EXPLAIN 的查询结果还会告诉你你的索引主键被如何利用的，你的数据表是如何被搜索和排序的……等等，等等。 
 　　挑一个你的SELECT语句(推荐挑选那个最复杂的，有多表联接的)，把关键字EXPLAIN加到前面。你可以使用phpmyadmin来做这个事。然后，你会看到一张表格。下面的这个示例中，我们忘记加上了group_id索引，并且有表联接： 
-　　 ![Alt text](https://github.com/chenyufeng1991/NewsClient/raw/master/Screenshots/20160611163818049.jpg)
+　　 ![Alt text](https://github.com/MOONYANYI/mysql-/blob/master/Screenshots/20160611163818049.jpg)
 
 二、SQL语句中IN包含的值不应过多
 
 MySQL对于IN做了相应的优化，即将IN中的常量全部存储在一个数组里面，而且这个数组是排好序的。但是如果数值较多，产生的消耗也是比较大的。再例如：select id from t where num in(1,2,3) 对于连续的数值，能用 between 就不要用 in 了；再或者使用连接来替换。
-![image](https://github.com/872822645/danxuankuangDemo/blob/master/1.jpg)
+
 三、SELECT语句务必指明字段名称
 
 SELECT *增加很多不必要的消耗（cpu、io、内存、网络带宽）；增加了使用覆盖索引的可能性；当表结构发生改变时，前断也需要更新。所以要求直接在select后面接上字段名。
